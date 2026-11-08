@@ -1,4 +1,4 @@
-# webhook_Switchbot.py の使い方
+# Switchbot_API_Tools.py の使い方
 
 この Readme は、SwitchBot API を操作するコマンドラインツール [Switchbot_API_Tools.py](./Switchbot_API_Tools.py) 専用の説明です。
 
@@ -39,7 +39,7 @@ SWITCHBOT_TOKEN=your_switchbot_open_token
 SWITCHBOT_SECRET=your_switchbot_secret_key
 ```
 
-`.env` は `webhook_Switchbot.py` が `python-dotenv` で読み込みます。各行は `KEY=value` の形式で記述します。実際の Token / Secret を Readme やソースコードに書いたり、GitHub に公開したりしないでください。プロジェクトの `.gitignore` では `.env` を除外しています。
+`.env` は `Switchbot_API_Tools.py` が `python-dotenv` で読み込みます。各行は `KEY=value` の形式で記述します。実際の Token / Secret を Readme やソースコードに書いたり、GitHub に公開したりしないでください。プロジェクトの `.gitignore` では `.env` を除外しています。
 
 ### 必要に応じて設定する値
 
@@ -58,7 +58,7 @@ Webhook URL も、実際のデプロイ URL をソースコードや公開 Readm
 PowerShell でプロジェクトのルートフォルダーに移動して実行します。
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py <action> [options]
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py <action> [options]
 ```
 
 使用できる action:
@@ -75,7 +75,7 @@ delete-webhook
 引数を省略すると `status` が実行されます。ヘルプは次のコマンドで確認できます。
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py --help
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py --help
 ```
 
 ## コマンド
@@ -83,7 +83,7 @@ delete-webhook
 ### デバイス一覧を取得
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py list
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py list
 ```
 
 SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの `deviceList.json` に保存します。このファイルには実デバイスの名前や ID が含まれるため、GitHub に公開しないでください。`.gitignore` で除外されています。
@@ -91,19 +91,19 @@ SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの
 ### デバイスの状態を取得
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py status --device-id YOUR_DEVICE_ID
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py status --device-id YOUR_DEVICE_ID
 ```
 
 `--device-id` を省略する場合は `.env` の `SWITCHBOT_Lock_DEVICEID` を使用します。
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py status
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py status
 ```
 
 ### Webhook を登録
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py setup-webhook --url "YOUR_GAS_WEB_APP_URL"
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py setup-webhook --url "YOUR_GAS_WEB_APP_URL"
 ```
 
 このコマンドは全デバイス向け (`deviceList: "ALL"`) の Webhook を設定します。`--url` を省略した場合は `.env` の `GAS_URL` を使用します。
@@ -111,7 +111,7 @@ SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの
 ### Webhook URL 一覧を確認
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py query-webhook
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py query-webhook
 ```
 
 `queryUrl` を実行し、現在登録されている URL 一覧を表示します。
@@ -119,7 +119,7 @@ SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの
 ### 指定 URL の Webhook 詳細を確認
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py query-webhook --url "YOUR_GAS_WEB_APP_URL"
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py query-webhook --url "YOUR_GAS_WEB_APP_URL"
 ```
 
 `queryDetails` を実行します。正常時のレスポンス例:
@@ -143,7 +143,7 @@ SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの
 ### Webhook 設定を更新
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py update-webhook --url "YOUR_GAS_WEB_APP_URL"
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py update-webhook --url "YOUR_GAS_WEB_APP_URL"
 ```
 
 指定 URL の Webhook を有効にする設定を SwitchBot API に送ります。`--url` を省略した場合は `.env` の `GAS_URL` を使用します。
@@ -151,7 +151,7 @@ SwitchBot API のデバイス一覧を JSON で表示し、プロジェクトの
 ### Webhook を削除
 
 ```powershell
-.\.venv\Scripts\python.exe .\webhook_Switchbot.py delete-webhook --url "YOUR_GAS_WEB_APP_URL"
+.\.venv\Scripts\python.exe .\Switchbot_API_Tools.py delete-webhook --url "YOUR_GAS_WEB_APP_URL"
 ```
 
 SwitchBot アカウントから指定 URL の Webhook 設定を削除します。削除後、その URL へイベントは送られません。意図した URL であることを確認してから実行してください。`--url` を省略した場合は `.env` の `GAS_URL` を使用します。
@@ -186,3 +186,4 @@ API が `statusCode` 100 以外を返した場合、または HTTP 通信・JSON
 ## 参考
 
 - [SwitchBot API 仕様](https://github.com/OpenWonderLabs/SwitchBotAPI)
+- [Webhook 受信 GAS](https://github.com/Take-pachi-pachi/GAS_Switchbot_webhook_notify)
