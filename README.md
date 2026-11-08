@@ -1,6 +1,6 @@
 # webhook_Switchbot.py の使い方
 
-この Readme は、SwitchBot API を操作するコマンドラインツール [webhook_Switchbot.py](./webhook_Switchbot.py) 専用の説明です。
+この Readme は、SwitchBot API を操作するコマンドラインツール [Switchbot_API_Tools.py](./Switchbot_API_Tools.py) 専用の説明です。
 
 このツールでできること:
 
@@ -10,7 +10,7 @@
 - 現在登録されている Webhook URL / 詳細の確認
 - Webhook 設定の更新・削除
 
-Webhook イベントを受け取る GAS の設定・処理については [readme_webhook_receiver.md](./readme_webhook_receiver.md) を参照してください。
+Webhook イベントを受け取る GAS の設定・処理については [GAS_Switchbot_webhook_notify](https://github.com/Take-pachi-pachi/GAS_Switchbot_webhook_notify) を参照してください。
 
 ## 必要な環境
 
