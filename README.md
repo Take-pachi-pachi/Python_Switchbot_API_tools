@@ -185,5 +185,4 @@ API が `statusCode` 100 以外を返した場合、または HTTP 通信・JSON
 
 ## 参考
 
-- [SwitchBot API 仕様 (プロジェクト内 Clone)](./SwitchBotAPI/README.md)
-- [Webhook 受信 GAS の使い方](./readme_webhook_receiver.md)
+- [SwitchBot API 仕様](https://github.com/OpenWonderLabs/SwitchBotAPI)
