@@ -1,6 +1,6 @@
 # Switchbot_API_Tools.py の使い方
 
-この Readme は、SwitchBot API を操作するコマンドラインツール [Switchbot_API_Tools.py](./Switchbot_API_Tools.py) 専用の説明です。
+この Readme は、SwitchBot API(v1.1)を操作するコマンドラインツール [Switchbot_API_Tools.py](./Switchbot_API_Tools.py) 専用の説明です。
 
 このツールでできること:
 
